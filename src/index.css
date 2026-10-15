@@ -1,0 +1,635 @@
+/* ========================================
+   1. RESET E CONFIGURAÇÕES GERAIS
+======================================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #fff;
+  background-color: #080808;
+
+  --preto: #080808;
+  --cinza: #181818;
+  --vermelho: #e50914;
+  --branco: #fff;
+  --texto-secundario: #ccc;
+}
+
+html {
+  min-width: 320px;
+  scroll-behavior: smooth;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  background-color: var(--preto);
+  color: var(--branco);
+}
+
+button,
+a {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+}
+
+.home {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background:
+    radial-gradient(
+      ellipse at top,
+      rgb(229 9 20 / 6%),
+      transparent 50%
+    ),
+    var(--preto);
+}
+
+/* ========================================
+   2. CABEÇALHO
+======================================== */
+
+.header {
+  position: relative;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 24px 5%;
+  border-bottom: 1px solid #222;
+  background-color: rgb(8 8 8 / 95%);
+}
+
+.logo h1 {
+  margin: 0;
+  color: var(--vermelho);
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: -1px;
+}
+
+.navigation ul {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  list-style: none;
+}
+
+.navigation a {
+  color: #eee;
+  transition: color 0.2s ease;
+}
+
+.navigation a:hover {
+  color: var(--vermelho);
+}
+
+.navigation a:focus-visible {
+  outline: 2px solid var(--vermelho);
+  outline-offset: 5px;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.btn button,
+.col1 button {
+  padding: 11px 20px;
+  border: none;
+  border-radius: 6px;
+  background-color: var(--vermelho);
+  color: var(--branco);
+  font-weight: bold;
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.btn button:hover,
+.col1 button:hover {
+  transform: translateY(-2px);
+  background-color: #b80710;
+}
+
+.menu-toggle {
+  display: none;
+  border: none;
+  background: transparent;
+}
+
+.menu-toggle span {
+  display: block;
+  width: 25px;
+  height: 3px;
+  margin: 5px 0;
+  border-radius: 3px;
+  background-color: var(--branco);
+}
+
+/* ========================================
+   3. CONTEÚDO PRINCIPAL
+======================================== */
+
+.main {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  gap: 48px;
+  width: 100%;
+  padding: 48px 5%;
+}
+
+.col1 {
+  flex: 1;
+  min-width: 0;
+}
+
+.col1 h2 {
+  margin-bottom: 20px;
+  font-size: clamp(30px, 3vw, 42px);
+  font-weight: 800;
+}
+
+.col1 p {
+  margin-bottom: 24px;
+  color: var(--texto-secundario);
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+/* ========================================
+   4. CARDS DOS FILMES
+======================================== */
+
+.cards {
+  display: grid;
+  flex: 2;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  min-width: 0;
+}
+
+.card {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  min-width: 0;
+  height: 230px;
+  padding: 12px;
+  overflow: hidden;
+  border: 1px solid #292929;
+  border-radius: 12px;
+  background-color: #222;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: var(--branco);
+  text-align: left;
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+/* Imagens dos filmes */
+
+.card1 {
+  background-image: url("/src/assets/afterlife.jpg");
+}
+
+.card2 {
+  background-image: url("/src/assets/transformers.jpg");
+}
+
+.card3 {
+  background-image: url("/src/assets/mowgli.jpg");
+}
+
+.card4 {
+  background-image: url("/src/assets/shift.png");
+}
+
+.card5 {
+  background-image: url("/src/assets/squidgame.webp");
+}
+
+.card6 {
+  background-image: url("/src/assets/harrypotter.jpg");
+}
+
+/* Informações dentro dos cards */
+
+.card-info {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 100%;
+  padding: 12px;
+  border: 1px solid rgb(255 255 255 / 8%);
+  border-radius: 7px;
+  background: linear-gradient(
+    to top,
+    rgb(0 0 0 / 96%),
+    rgb(0 0 0 / 72%)
+  );
+  backdrop-filter: blur(3px);
+}
+
+.card-info strong {
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+.card-info small {
+  color: #ddd;
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+/* Efeitos dos cards */
+
+.card:hover {
+  transform: translateY(-5px) scale(1.02);
+  border-color: var(--vermelho);
+  box-shadow: 0 12px 30px rgb(229 9 20 / 20%);
+}
+
+.card:focus-visible {
+  outline: 3px solid var(--vermelho);
+  outline-offset: 3px;
+}
+
+/* ========================================
+   5. JANELA DE DETALHES
+======================================== */
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background-color: rgb(0 0 0 / 85%);
+  backdrop-filter: blur(6px);
+}
+
+.modal-content {
+  position: relative;
+  width: 100%;
+  max-width: 650px;
+  max-height: 85vh;
+  overflow-y: auto;
+  border: 1px solid #383838;
+  border-radius: 14px;
+  background-color: var(--cinza);
+  background-position: center;
+  background-size: cover;
+  color: var(--branco);
+  box-shadow: 0 20px 60px rgb(0 0 0 / 50%);
+  animation: aparecer 0.25s ease;
+}
+
+.modal-info {
+  min-height: 320px;
+  padding: 40px;
+  background: linear-gradient(
+    to top,
+    #111 10%,
+    rgb(17 17 17 / 94%) 60%,
+    rgb(17 17 17 / 65%)
+  );
+}
+
+.modal-fechar {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  z-index: 2;
+  display: grid;
+  width: 38px;
+  height: 38px;
+  place-items: center;
+  border: none;
+  border-radius: 50%;
+  background-color: var(--vermelho);
+  color: var(--branco);
+  font-size: 20px;
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.modal-fechar:hover {
+  transform: rotate(90deg);
+  background-color: #b80710;
+}
+
+.modal-tipo {
+  display: inline-block;
+  margin-bottom: 12px;
+  color: #ff5252;
+  font-size: 13px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.modal-info h2 {
+  margin-bottom: 10px;
+  font-size: clamp(25px, 4vw, 32px);
+  line-height: 1.3;
+}
+
+.modal-info p {
+  margin-top: 16px;
+  color: #ddd;
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.modal-info strong {
+  color: var(--branco);
+}
+
+.modal-info .modal-nota {
+  color: #ffcc66;
+  font-weight: bold;
+}
+
+.modal-detalhes {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 24px;
+  padding-top: 18px;
+  border-top: 1px solid #444;
+}
+
+.modal-detalhes p {
+  margin-top: 0;
+  padding: 10px;
+  border: 1px solid #333;
+  border-radius: 7px;
+  background-color: rgb(255 255 255 / 4%);
+  font-size: 13px;
+}
+
+/* Animação da janela */
+
+@keyframes aparecer {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* ========================================
+   6. TABLETS
+======================================== */
+
+@media (max-width: 1100px) {
+  .main {
+    gap: 28px;
+  }
+
+  .cards {
+    gap: 14px;
+  }
+
+  .card {
+    height: 200px;
+  }
+
+  .card-info {
+    padding: 9px;
+  }
+
+  .card-info strong {
+    font-size: 14px;
+  }
+
+  .card-info small {
+    font-size: 11px;
+  }
+}
+
+/* ========================================
+   7. MENU RESPONSIVO
+======================================== */
+
+@media (max-width: 900px) {
+  .header {
+    position: relative;
+  }
+
+  .navigation {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 30;
+    display: none;
+    width: 100%;
+    padding: 20px;
+    border-bottom: 1px solid #333;
+    background-color: #111;
+  }
+
+  .navigation.open {
+    display: block;
+  }
+
+  .navigation ul {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .main {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .col1 {
+    text-align: center;
+  }
+
+  .col1 p {
+    max-width: 500px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .cards {
+    width: 100%;
+  }
+}
+
+/* ========================================
+   8. CELULARES
+======================================== */
+
+@media (max-width: 600px) {
+  .header {
+    gap: 12px;
+    padding: 20px 5%;
+  }
+
+  .logo h1 {
+    font-size: 23px;
+  }
+
+  .btn button {
+    padding: 9px 13px;
+    font-size: 13px;
+  }
+
+  .main {
+    gap: 28px;
+    padding: 30px 5%;
+  }
+
+  .col1 h2 {
+    font-size: 30px;
+  }
+
+  .col1 p {
+    font-size: 14px;
+  }
+
+  .cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .card {
+    height: 190px;
+    padding: 8px;
+  }
+
+  .card-info {
+    gap: 5px;
+    padding: 8px;
+  }
+
+  .card-info strong {
+    font-size: 13px;
+  }
+
+  .card-info small {
+    font-size: 11px;
+  }
+
+  .modal-overlay {
+    padding: 12px;
+  }
+
+  .modal-content {
+    max-height: 90vh;
+  }
+
+  .modal-info {
+    min-height: 280px;
+    padding: 55px 22px 25px;
+  }
+
+  .modal-info h2 {
+    font-size: 25px;
+  }
+
+  .modal-info p {
+    font-size: 14px;
+  }
+
+  .modal-detalhes {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    margin-top: 20px;
+    padding-top: 15px;
+  }
+}
+
+/* ========================================
+   9. CELULARES PEQUENOS
+======================================== */
+
+@media (max-width: 380px) {
+  .logo h1 {
+    font-size: 20px;
+  }
+
+  .col1 h2 {
+    font-size: 26px;
+  }
+
+  .cards {
+    gap: 9px;
+  }
+
+  .card {
+    height: 165px;
+    padding: 6px;
+  }
+
+  .card-info {
+    padding: 7px;
+  }
+
+  .card-info strong {
+    font-size: 12px;
+  }
+
+  .card-info small {
+    font-size: 10px;
+  }
+}
+
+/* ========================================
+   10. ACESSIBILIDADE
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
